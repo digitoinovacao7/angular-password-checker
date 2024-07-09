@@ -1,0 +1,92 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 50rem;
+  text-align: center;
+  background: linear-gradient(to bottom, #2c0a4c, #450d80);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+
+  &__header {
+    width: 80%;
+  }
+
+  &__password,
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__password {
+    margin-bottom: 8px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  &__checkbox {
+    margin-left: 25px;
+    flex-direction: row-reverse;
+    justify-content: start;
+    gap: 0.3rem;
+  }
+
+  &__footer {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.password {
+  &__title {
+    font-size: 1.2rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 16px;
+
+    border-radius: 30px;
+    border: none;
+
+    background: rgba(7, 7, 7, 0.41);
+    color: #c3b3d8;
+  }
+}
+
+.checkbox {
+  &__title {
+    font-size: 0.9rem;
+  }
+}
+
+.footer {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 12px;
+  color: rgb(255, 128, 128);
+
+  &__message {
+    margin: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding: 2rem;
+  }
+}

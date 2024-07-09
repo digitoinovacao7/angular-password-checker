@@ -1,0 +1,47 @@
+<main class="main">
+  <form class="main__header" [formGroup]="form">
+    <fieldset class="main__password password">
+      <label class="password__title" for="password"> Password </label>
+      <input
+        class="password__input"
+        id="password"
+        [type]="isPasswordShown ? 'text' : 'password'"
+        name="password"
+        placeholder="Enter your password"
+        [formControl]="form.controls.password"
+      />
+    </fieldset>
+
+    <fieldset class="main__checkbox checkbox">
+      <label class="checkbox__title" for="show-password">Show Password</label>
+
+      <input
+        class="checkbox__input"
+        id="show-password"
+        type="checkbox"
+        name="checkbox"
+        (click)="passwordIsShown()"
+      />
+    </fieldset>
+
+    @if(hasPasswordErrors) {
+    <div class="error">
+      @if (hasPasswordWhitespaces) {
+      <p class="error__message">Password must not contains a witespaces.</p>
+      } @if (isValidLength) {
+      <p class="error__message">Password must be at least 8 characters.</p>
+      } @if (isMatchPattern) {
+      <p class="error__message">
+        Password must contains digits, letters, special characters.
+      </p>
+      }
+    </div>
+    }
+  </form>
+
+  <section class="main__footer footer">
+    @for (field of fields; track field.name) {
+    <main-field [password]="form.controls.password.value" [field]="field" />
+    }
+  </section>
+</main>

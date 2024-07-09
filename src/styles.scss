@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Satoshi";
+  src: local("Satoshi Medium"), local("Satoshi-Medium"),
+    url("./assets/fonts/Satoshi-Medium.woff2") format("woff2"),
+    url("./assets/fonts/Satoshi-Medium.woff") format("woff"),
+    url("./assets/fonts/Satoshi-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  background: radial-gradient(circle at top left, #181023, #0b0519);
+  color: #c3b3d8;
+  margin: 0;
+  padding: 0;
+
+  font-family: "Satoshi", sans-serif;
+  font-size: 16px;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+
+  border: none;
+}
+
+.gray {
+  background-color: gray;
+}
+
+.green {
+  background-color: greenyellow;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.red {
+  background-color: red;
+}
