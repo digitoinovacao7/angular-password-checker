@@ -13,6 +13,7 @@ import {
   mustMatchPattern,
   mustNotContainsWhitespaces,
 } from '../../services/validationFunctions';
+import { ErrorMessage } from '../../types/ErrorMessage';
 
 @Component({
   selector: 'app-main',
@@ -71,7 +72,7 @@ export class MainComponent {
       return false;
     }
 
-    return errors['minLength'] === true;
+    return errors.hasOwnProperty('minlength');
   }
 
   get isMatchPattern() {
@@ -86,5 +87,23 @@ export class MainComponent {
     }
 
     return errors['doesNotMatchPattern'] === true;
+  }
+
+  get errorMessage() {
+    let errorMessage = '';
+
+    if (this.hasPasswordWhitespaces) {
+      errorMessage += ErrorMessage.whitespaces;
+    }
+
+    if (this.isMatchPattern) {
+      errorMessage += ErrorMessage.doesNotMatchPattern;
+    }
+
+    if (this.isValidLength) {
+      errorMessage += ErrorMessage.invalidLength;
+    }
+
+    return errorMessage;
   }
 }

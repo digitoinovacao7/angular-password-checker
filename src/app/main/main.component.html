@@ -12,6 +12,12 @@
       />
     </fieldset>
 
+    @if(hasPasswordErrors) {
+    <p class="error">
+      {{ errorMessage }}
+    </p>
+    }
+
     <fieldset class="main__checkbox checkbox">
       <label class="checkbox__title" for="show-password">Show Password</label>
 
@@ -23,20 +29,6 @@
         (click)="passwordIsShown()"
       />
     </fieldset>
-
-    @if(hasPasswordErrors) {
-    <div class="error">
-      @if (hasPasswordWhitespaces) {
-      <p class="error__message">Password must not contains a witespaces.</p>
-      } @if (isValidLength) {
-      <p class="error__message">Password must be at least 8 characters.</p>
-      } @if (isMatchPattern) {
-      <p class="error__message">
-        Password must contains digits, letters, special characters.
-      </p>
-      }
-    </div>
-    }
   </form>
 
   <section class="main__footer footer">
